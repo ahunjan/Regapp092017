@@ -2,13 +2,15 @@ package regapp.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import regapp.domain.Student;
 
 public class StudentDao {
-	private List<Student> students = new ArrayList<>();
+	private static List<Student> students = new ArrayList<>();
 
-	private static int nextId = 0;
+	//private static int nextId = 0;
+	private static AtomicInteger nextId = new AtomicInteger(0);
 
 	public StudentDao() {
 		Student s1 = new Student("Rachna", 43);
@@ -21,7 +23,8 @@ public class StudentDao {
 	}
 	
 	public Student insert(Student s) {
-		int id = nextId++;
+		//int id = nextId++;
+		int id = nextId.getAndIncrement();
 		s.setId(id);
 
 		students.add(s);
