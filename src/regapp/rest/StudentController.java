@@ -11,8 +11,8 @@ import regapp.service.StudentService;
 public class StudentController {
 	
 	@GET
-	@Path("/{one}")
-	public Student getStudent(@PathParam("one") int id)  {
+	@Path("/{id}")
+	public Student getStudent(@PathParam("id") int id)  {
 		StudentService ss = new StudentService();
 		Student student = ss.getStudent(id);
 		
