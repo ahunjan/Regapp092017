@@ -2,7 +2,7 @@ package regapp.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.PathParam;
 
 import regapp.domain.Student;
 import regapp.service.StudentService;
@@ -11,7 +11,8 @@ import regapp.service.StudentService;
 public class StudentController {
 	
 	@GET
-	public Student getStudent(@QueryParam("id") int id)  {
+	@Path("/{one}")
+	public Student getStudent(@PathParam("one") int id)  {
 		StudentService ss = new StudentService();
 		Student student = ss.getStudent(id);
 		
