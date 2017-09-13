@@ -8,6 +8,7 @@ import regapp.domain.Student;
 
 public class StudentService {
 	
+	
 	private StudentDao studentDao = new StudentDao();
 	
 	public List<Student> getAllStudents() {
@@ -19,7 +20,6 @@ public class StudentService {
 	}
 	
 	public Student addStudent(Student s) {
-		
 		return studentDao.insert(s);
 	}
 }

@@ -21,9 +21,11 @@ import regapp.service.StudentService;
 @WebServlet("/FirstServlet")
 public class FirstServlet extends HttpServlet {
 
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+		
 		PrintWriter out = response.getWriter();
 		// Get Raw Data
 		String idStr = request.getParameter("id");
