@@ -1,6 +1,7 @@
 package regapp.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -46,5 +47,18 @@ public class StudentDao {
 
 	public List<Student> findAll() {
 		return students;
+	}
+
+	public boolean remove(int id) {
+		
+		Iterator<Student> it = students.iterator();
+		while(it.hasNext()) {
+			Student s = it.next();
+			if(s.getId() == id) {
+				it.remove();
+				return true;
+			}
+		}
+		return false;
 	}
 }

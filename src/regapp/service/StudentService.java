@@ -22,4 +22,8 @@ public class StudentService {
 	public Student addStudent(Student s) {
 		return studentDao.insert(s);
 	}
+
+	public boolean deleteStudent(int id) {
+		return studentDao.remove(id);
+	}
 }
