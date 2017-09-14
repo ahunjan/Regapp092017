@@ -33,7 +33,7 @@ public class StudentController {
 		}
 		else {
 			ro.setAppStatus(897);
-			ro.setError("Id " + id + "not found");
+			ro.setError("Id " + id + " not found");
 		}
 		
 		return Response.ok().entity(ro).build();

@@ -22,8 +22,12 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Required only when you are using JAX-RS Client <dependency> <groupId>org.glassfish.jersey.core</groupId> 
-			<artifactId>jersey-client</artifactId> <version>2.19</version> </dependency> -->
+		<!-- Required only when you are using JAX-RS Client -->
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.19</version>
+		</dependency>
 
 		<!-- For TomEE CXF -->
 		<dependency>

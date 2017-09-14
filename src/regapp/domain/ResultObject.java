@@ -1,5 +1,8 @@
 package regapp.domain;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ResultObject {
 	private String error;
 	
@@ -30,6 +33,4 @@ public class ResultObject {
 	public void setAppStatus(int appStatus) {
 		this.appStatus = appStatus;
 	}
-	
-	
 }
