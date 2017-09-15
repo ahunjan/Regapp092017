@@ -3,10 +3,10 @@ package regapp.domain;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ResultObject {
+public class ResultObject<XYZ> {
 	private String error;
 	
-	private Object result;
+	private XYZ result;
 	
 	private int appStatus;
 
@@ -18,11 +18,11 @@ public class ResultObject {
 		this.error = error;
 	}
 
-	public Object getResult() {
+	public XYZ getResult() {
 		return result;
 	}
 
-	public void setResult(Object result) {
+	public void setResult(XYZ result) {
 		this.result = result;
 	}
 

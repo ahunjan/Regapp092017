@@ -41,8 +41,10 @@ public class GeoClientJersey {
 	}
 
 	public GeoResult fetchLatLong(String address) throws JsonProcessingException, IOException {
-		Response response = googRoot.queryParam("address", address)
-			.request().get();
+		Response response = googRoot
+				.queryParam("address", address)
+				.request()
+				.get();
 		
 		if(response.getStatus() >= 400) {
 			throw new WebApplicationException("Response Status is " + response.getStatus());

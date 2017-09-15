@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 public final class LocationFetcher {
 
 	public static void main(String[] args) throws IOException {
-		byte [] bytes = Files.readAllBytes(Paths.get("geoResult.json"));
+		byte [] bytes = Files.readAllBytes(Paths.get("goog.json"));
 		String jsonString = new String(bytes);
 		
 		LocationFetcher lf = new LocationFetcher();

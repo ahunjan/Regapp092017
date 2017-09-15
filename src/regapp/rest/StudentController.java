@@ -1,5 +1,6 @@
 package regapp.rest;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -9,9 +10,12 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.UriInfo;
 
 import regapp.domain.ResultObject;
 import regapp.domain.Student;
@@ -26,7 +30,7 @@ public class StudentController {
 		StudentService ss = new StudentService();
 		Student student = ss.getStudent(id);
 		
-		ResultObject ro = new ResultObject();
+		ResultObject<Student> ro = new ResultObject<>();
 		if(student != null) {
 			ro.setResult(student);
 			ro.setAppStatus(200);
@@ -56,7 +60,11 @@ public class StudentController {
 		StudentService ss = new StudentService();
 		Student newStudent = ss.addStudent(student);
 		
-		return Response.status(Status.CREATED).entity(newStudent).build();
+		ResultObject<Student> ro = new ResultObject<>();
+		ro.setAppStatus(999999);
+		ro.setResult(newStudent);
+
+		return Response.status(Status.CREATED).entity(ro).build();
 	}
 
 	@DELETE
@@ -65,7 +73,7 @@ public class StudentController {
 		
 		StudentService ss = new StudentService();
 		boolean result = ss.deleteStudent(id);
-		ResultObject ro = new ResultObject();
+		ResultObject<Student> ro = new ResultObject<>();
 		if(result) {
 			ro.setAppStatus(200);
 		}
